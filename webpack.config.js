@@ -10,7 +10,11 @@ module.exports = {
 		publicPath: '/'
 	},
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['.js', '.jsx'],
+		alias: {
+			components: path.resolve(__dirname, 'src/components'),
+			container: path.resolve(__dirname, 'src/container')
+		}
 	},
 	module: {
 		rules: [
@@ -18,9 +22,6 @@ module.exports = {
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
 				use: { loader: 'babel-loader' }
-				/* 				options: {
-					presets: ['@babel/preset-env', '@babel/preset-react']
-				} */
 			},
 			{
 				test: /\.html$/,
